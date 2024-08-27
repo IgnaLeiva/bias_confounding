@@ -1,0 +1,589 @@
+---
+format: 
+  revealjs:
+      theme: css/hkhd.scss
+      logo: "images/akronymwhite.png"
+      css: [assets/syntax-highlight.css, assets/custom.css, assets/pacman.css]
+      slide-number: c/t
+      show-slide-number: all
+      title-slide-attributes:
+        data-background-color: "white"
+      preview-links: true
+editor: source
+version: 0.0.1
+incremental: false
+linestretch: 1.1
+embed-resources: true
+header-includes: |
+   <link rel="stylesheet" href="/assets/fontawesome-free-6.1.1-web/css/font-awesome.min.css">
+      <script defer src="/assets/fontawesome-free-6.1.1-web/js/all.min.js"></script>
+---
+
+------------------------------------------------------------------------
+
+## 
+
+
+<!--- examples: https://github.com/mcanouil/awesome-quarto?tab=readme-ov-file#presentations-formats --->
+
+<!---"css/hkhd.scss"-->
+
+<section data-background-image="images/BG2.png">
+
+</section>
+
+<!-- background-image="/Users/ignaleiva/Downloads/UKHD_presentation_theme-master/images/BG.svg"-->
+
+![](images/logoWhiteEnglish.png){.absolute top="0" width="180" height="180"}  <!--![](images/logo.png){.absolute top=0 width="240" height="240"} -->
+
+
+<div style="height: 400px;"></div>
+::: title-box
+<p>[Part 3: Bias & Confounding]{style="font-size: 1.6em; font-weight: bold; color: white;"} </p>
+<p>[Ignacio Leiva, MSc]{style="font-size: 0.8em; color: white;"}</p>
+:::
+
+## Aims of the lecture
+
+<div style="height: 100px;"></div>
+
+::: info-box
+
+<ul>
+
+<li><i class="fa-solid fa-bullseye"></i>Now potential **sources of errors** in epidemiological studies</li>
+
+<li><i class="fa-brands fa-github"></i>Evaluation of the **result validity** considering confounding factor</li>
+
+<li><i class="fa-solid fa-bowl-food"></i>Gain knowledge about **study evaluation**</li>
+
+</ul>
+:::
+
+## Lecture structure
+
+<div style="height: 100px;"></div>
+::: columns
+::: {.column .center width="33%" .incremental}
+
+::: option-box 
+<p>**Error**</p>
+<p> `Random`</p>
+<p> `Systematic`</p>
+<p>[x]{style="font-size: 0.7em; font-weight: bold; color: transparent"} </p>
+
+<!---<p>[Random, systematic]{style="font-size: 0.7em; font-weight: bold; color: #E6E6E6;"} </p> --->
+:::
+:::
+::: {.column .center width="33%" .incremental}
+::: option-box 
+**Bias**
+<div style="font-size: 0.7em; font-weight: bold; color: #E6E6E6;"></div>
+<p>`Selection`</p>
+<p>`Information`</p>
+<p>`Confounding`<sup>*</sup></p>
+:::
+:::
+
+::: {.column .center width="33%" .incremental}
+
+::: option-box 
+**Confounding**<sup>*</sup>
+<!-- those only for give more size to the box --->
+<p>[x]{style="font-size: 0.7em; font-weight: bold; color: transparent"} </p>
+<p>[x]{style="font-size: 0.7em; font-weight: bold; color: transparent"} </p>
+<p>[x]{style="font-size: 0.7em; font-weight: bold; color: transparent"} </p>
+:::
+:::
+:::
+
+## {auto-animate=true}
+
+[Why is the **identification** and **interpretation** of biases essential in epidemiology?]{style="font-size: 1.5em;"} 
+
+<div style="height: 50px;"></div>
+::: info-box
+<ul>
+
+<li><i class="fa-solid fa-bullseye"></i>Helps to determine the validity of the study results</li>
+<li><i class="fa-brands fa-github"></i>Observational studies are more proned to bias compared with RCT</li>
+<li><i class="fa-solid fa-bowl-food"></i>RCT not always can be conducted</li>
+<li><i class="fa-solid fa-bowl-food"></i>Strategies to minimised bias in observational settings</li>
+
+</ul>
+:::
+
+## 
+
+
+<div style="height: 100px;"></div>
+::: columns
+::: {.column .center width="33%" .incremental}
+
+::: option-box 
+<p>[**Error**](#error)</p>
+<p> `Random`</p>
+<p> `Systematic`</p>
+<p>[x]{style="font-size: 0.7em; font-weight: bold; color: transparent"} </p>
+
+<!---<p>[Random, systematic]{style="font-size: 0.7em; font-weight: bold; color: #E6E6E6;"} </p> --->
+:::
+:::
+::: {.column .center width="33%" .incremental}
+::: option-box 
+[**Bias**](#selection-bias)
+<div style="font-size: 0.7em; font-weight: bold; color: #E6E6E6;"></div>
+<p>`Selection`</p>
+<p>`Information`</p>
+<p>`Confounding`<sup>*</sup></p>
+:::
+:::
+
+::: {.column .center width="33%" .incremental}
+
+::: option-box 
+**Confounding**<sup>*</sup>
+<!-- those only for give more size to the box --->
+<p>[x]{style="font-size: 0.7em; font-weight: bold; color: transparent"} </p>
+<p>[x]{style="font-size: 0.7em; font-weight: bold; color: transparent"} </p>
+<p>[x]{style="font-size: 0.7em; font-weight: bold; color: transparent"} </p>
+:::
+:::
+:::
+
+## 
+
+## Random error {#error}
+
+
+Definition random error: See Neil ppt, realated to precision of an estimate:
+Random error is not unique to epidemiologic studies and also occurs in randomized trials
+Even if the disease under study is not associated with an exposure, there may be a “chance” association in a particular study (e.g. disease may be more common in the exposed than in the non-exposed group) 
+
+The precision (lack of random error) of an effect estimate (e.g. an odds ratio) is reflected in the 95% confidence interval
+Random error reduces, and precision increases, as the study size increases
+
+
+## Systematic error
+
+Systematic error (bias) occurs if there is a systematic difference between what the study is estimating and what it is intended to estimate
+It also occurs in clinical trials, but some types of systematic error may be more likely in epidemiologic studies because of the lack of randomization of exposure
+
+
+## Selection bias {#selection-bias}
+
+it is any bias arising from the way that study participants are selected (or select themselves) from the source population
+
+- In an incidence (or prevalence study) selection bias will not occur if there is a 100% response rate
+- However, if for example, cases of disease are more likely to participate than non-cases, and this is related to exposure, then selection bias will occur
+
+
+
+## Take-away message [1]{.circle} <i class="fa-brands fa-r-project" style="height:120px;vertical-align:middle;"></i> <img src="images/edibble.png" height="120px" style="vertical-align:middle;"/>
+
+-   `edibble` is an <a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" style="color:black">experimental</a> R-package I have been developing to *plan*, ***design***, and *simulate* **experiments**
+
+::: info-box
+`edibble` stands for **e**xperimental **d**esign table (or `tibble`)
+
+<ul>
+
+<li><i class="fa-solid fa-bullseye"></i> aims to provide the experimental design in table format</li>
+
+<li><i class="fa-brands fa-github"></i>\[github.com/emitanaka/edibble\] (https://github.com/emitanaka/edibble)</li>
+
+<li><i class="fa-solid fa-bowl-food"></i>commonly misspelled as edible (perhaps because of autocorrect)</li>
+
+</ul>
+:::
+
+
+## Need and significance
+
+> Extend trial finding into real-world settings
+
+-   Inclusion/exclusion criteria
+-   Heterogeneity and complex treatment regimens
+
+> Natural course of diseases
+
+-   Endpoint selection
+-   Evaluation of multiple disease states
+
+## important-slide
+
+sdsdsdsd
+
+## What TREND-REVIVAL offers
+
+An integration of the use of `validated real-world data` sources and `multi-state models` to:
+
+-   Provide the necessary regulatory information
+-   Predict success in RW treatment situations
+-   Support the RCT design to increase success rates in clinical development
+
+## [STORY 1]{.story} Project Overview
+
+![](images_presentation/project_overview.png)
+
+#  {background-color="#002046"}
+
+![](images/akronymwhite.png){width="10%"}
+
+[Extending RCT inferences]{style="font-size: 1.6em; font-weight: bold;color: white"}
+
+## Extending RCT inferences
+
+-   Conduct transportability analysis using
+    -   Either IPW or outcome model-based approach
+    -   Validation process due to the target and target population differences
+    -   Variables measurement
+-   Use of individual patient data from RCTs: `Outcome, exposure and covariate`
+-   Use of individual patient in RW: Only `covariates` (also possible to use summary-level information)
+
+## Extending RCT inferences: critical points
+
+-   Check the identifiability conditions
+-   Identify relevant effect modifiers
+-   Level of agreement between the predicted treatment effect and the observed
+
+#  {background-color="#004a6f"}
+
+[Multi-state modelling]{style="font-size: 1.6em; font-weight: bold;color: white"}
+
+## Overall
+
+-   Provide more detailed insights about the course of diseases
+    -   Hazard of transition (intensity), probability of transition, time spent in a state
+-   Evaluate the effect of covariates on transitions
+
+## Multi-state model
+
+```{r}
+#| echo: false
+#| fig-width: 100
+
+
+library(DiagrammeR)
+DiagrammeR("graph LR;A(Rounded)-->B[Squared];B-->C{A Decision};
+C-->D[Square One];C-->E[Square Two];
+"
+ )
+```
+
+## ffff
+
+::: box
+Consider a field experiment in agriculture where [plot]{.fragment .highlight-red fragment-index="2"} are laid in out as [6 rows by 8 columns]{.fragment .highlight-red fragment-index="1"} (each also called strip). There are [4 modes of seedbed preparation and 3 crop varieties]{.fragment .highlight-blue fragment-index="3"} that are of the interest to the researcher. The [mode of seedbed preparation is assigned randomly to the whole columns]{.fragment .highlight-blue fragment-index="4"}, and the [crop variety is assigned randomly to the whole row]{.fragment .highlight-blue fragment-index="5"}. This experimental design is called a **strip-plot design**.
+:::
+
+## fff
+
+```         
+data-parquet/
+├── 1999
+│   └── data.parquet
+├── 2000
+│   └── data.parquet
+├── 2001
+│   └── data.parquet
+├── 2002
+│   └── data.parquet
+├── 2003
+│   └── data.parquet
+├── 2004
+│   └── data.parquet
+├── 2005
+│   └── data.parquet
+├── 2006
+│   └── data.parquet
+├── 2007
+│   └── data.parquet
+├── 2008
+│   └── data.parquet
+├── 2009
+│   └── data.parquet
+├── 2010
+│   └── data.parquet
+├── 2011
+│   └── data.parquet
+├── 2012
+│   └── data.parquet
+├── 2013
+│   └── data.parquet
+├── 2014
+│   └── data.parquet
+```
+
+## Poll: what tools do you use? {.text-lime-cyan}
+
+::: notes
+Would love to find out more about all of you and what you're learning
+
+No personal info in this poll, just 2 Qs
+
+1.  What have you used before?
+2.  What do you want to learn?
+
+Take a moment to fill it in on your phone
+
+Normally if you wanted to do a poll in a presentation, you'd use a third-party website like Slido and embed it
+
+For today's poll I decided to take a risk and build it entirely in Quarto.
+:::
+
+::: columns
+::: {.column width="40%"}
+![](./images/qrcode-survey.png){fig-alt="A QR code for the survey."}
+:::
+
+::: {.column .center width="60%"}
+<br>Take the survey at [**https://forms.gle/EdADv8GvDxUrrRmy8**](https://forms.gle/EdADv8GvDxUrrRmy8){.uri}
+:::
+:::
+
+##  {.text-lime-cyan style="text-align: center;"}
+
+```{ojs}
+md`## Poll results (Respondents: ${respondentCount})`
+```
+
+```{ojs}
+
+import { liveGoogleSheet } from "@jimjamslam/live-google-sheet";
+import { aq, op } from "@uwdata/arquero";
+
+surveyResults = liveGoogleSheet(
+  "https://docs.google.com/spreadsheets/d/e/" +
+    "2PACX-1vSVQzZlkSWWR38FRKyFbO2WGYo04ehrJt4TvWkRVOJ7WPRmfQzPAf7AjtyV2EjIY-2DwKW-SfzLoEQw/" +
+    "pub?gid=1368316628&single=true&output=csv",
+  15000, 1, 2);
+
+respondentCount = surveyResults.length;
+```
+
+```{ojs}
+// get the counts of people using and interested in tools
+countsUsed = aq.from(surveyResults)
+  .derive({ used: d => op.split(d.responseUsed, ", ") })
+  .select("used")
+  .unroll("used")
+  .groupby("used")
+  .count()
+  .derive({ measure: d => "Have used" })
+  .rename({ used: "tool" })
+```
+
+```{ojs}
+countsWant = aq.from(surveyResults)
+  .derive({ want: d => op.split(d.responseWant, ", ") })
+  .select("want")
+  .unroll("want")
+  .groupby("want")
+  .count()
+  .derive({ measure: d => "Want to learn" })
+  .rename({ want: "tool" })
+```
+
+```{ojs}
+// combine the two counts into one dataset again
+countsAll = [...countsUsed.objects(), ...countsWant.objects()];
+
+plotUsed = Plot.plot({
+  marks: [
+    Plot.barX(countsAll, { y: "tool", x: "count", fill: "tool" }),
+    Plot.ruleX([respondentCount], { stroke: "#ffffff99" })
+  ],
+  x : { label: "" },
+  y : { label: "", tickSize: 0 },
+  facet: { data: countsAll, x: "measure", label: "" },
+  marginLeft: 140,
+  style: {
+    width: 1350,
+    height: 500,
+    fontSize: 12,
+  }
+});
+```
+
+<!-- keep a qr code up in the top-right corner -->
+
+![](./images/qrcode-survey.png){style="position:fixed;top:0;right:0;width:140px;height:140px" fig-alt="A picture of a QR code to the survey."}
+
+## ffff
+
+<h2 class="text-orange-gold">
+
+Notebooks
+
+</h2>
+
+[**Results in the file too**]{style="color:gold;"}
+
+### fff
+
+## Observable JS: no server required {.text-red-brown .center}
+
+::: columns
+::: {.column width="50%"}
+::: fragment
+We make a slider called `x`...
+
+::: {style="color: black"}
+```{ojs}
+//| echo: true
+viewof x = Inputs.range(
+  [0, 100], { step: 1 })
+```
+:::
+:::
+:::
+
+::: {.column width="50%"}
+::: fragment
+... and then reference it:
+
+```{ojs}
+//| echo: true
+md`The square of ${x} is ${x**2}!
+  How about that!`
+```
+:::
+
+::: fragment
+The text **reacts** to the changing value of `x`. Nice!
+:::
+:::
+:::
+
+## fff
+
+## Example: footy scores {.text-red-brown .center .smaller style="text-align:center"}
+
+::: notes
+So let's say we had data on footy scores for different teams over a number of years.
+
+We could try to make one graphic that shows all the data, but it's a lot!
+
+And maybe different readers care about different teams.
+
+We can let our chart **react** to the decisions our users make about footy team and year.
+:::
+
+**menu** + **slider** =\> **chart of footy scores**
+
+::: {.columns .fragment}
+::: {.column width="40%"}
+::: {style="color:black"}
+```{ojs}
+//| echo: false
+
+viewof footyTeam2 = Inputs.select(
+  ["Pies", "Blues", "Bombers", "Cats"],
+  { value: "Blues", label: "Footy team" })
+
+viewof year2 = Inputs.range([1990, 2005],
+  { value: 1990, step: 1, label: "Year", width: 300 })
+```
+:::
+:::
+
+::: {.column width="60%"}
+```{ojs}
+//| echo: false
+
+scores2 = FileAttachment("data/footy-scores.csv").csv({ typed: true })
+filteredScores2 = scores.filter(d => d.team == footyTeam2 && d.year == year2)
+
+Plot.plot({
+  marks: [
+    Plot.barY(filteredScores2, { x: "game", y: "score", fill: "game" })
+  ],
+  x: { label: "Game number", labelOffset: 70 },
+  y: { label: "Score" },
+  width: 800,
+  height: 500,
+  marginLeft: 60,
+  marginBottom: 90,
+  marginTop: 60,
+  style: {
+    fontSize: 24
+  }
+})
+```
+:::
+:::
+
+## ffff
+
+## Use the whole web {.text-red-brown}
+
+::: notes
+And when you're ready, you can use any other JavaScript library
+
+(click to see)
+
+This was a chart we built recently showing that many commercial satellites are used by governments and the military too.
+
+(click to Italy)
+
+This uses the `d3-euler` library, as well as a popup library called `micromodal`.
+
+There's a lot we could do to improve this, but the actual JavaScript being used here would look very familar to an R or Python user!
+
+This isn't much more complex than the dropdown menu and footy score chart
+:::
+
+::: fragment
+<iframe src="https://360info-satellitemixeduse.pages.dev/embed-user-overlaps" height="600" width="1400" style="background:white">
+
+</iframe>
+:::
+
+## Slide Title {background-iframe="iFrame/center-of-universe/index.html"}
+
+## fff
+
+## Geolocate {#geolocate .galah data-menu-title="galah_geolocate()"}
+
+::: {.columns .v-center-container}
+::: {.column width="100%"}
+::: panel-tabset
+### R
+
+```{r eval= FALSE}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "|1-2|4-6|8-11|"
+#| output-location: column-fragment
+
+# library(galah)
+# library(sf)
+# 
+# melb <- st_read("data/metro_region.shp", 
+#                 quiet = TRUE) |> 
+#   st_simplify(dTolerance = 1000)
+# 
+# galah_call() |> 
+#   galah_identify("pardalotus") |> 
+#   galah_geolocate(melb) |> 
+#   atlas_counts()
+
+```
+
+<!--- ![](images/metro_outline.png){.absolute bottom="10px" right="10px"} --->
+
+### Python
+
+Watch this space!
+:::
+:::
+:::
+
+::: notes
+{galah} also lets you search within a bespoke location; with galah_geolocate, you can provide a shapefile, well known text string, bounding box, or simple features object. In this example here, we load the {sf} package, then read in a shapefile of the melbourne metro region. Then it's' just a case of providing this as an argument to galah_geolocate, and we have 93 thousand pardalotes ever recorded in Melbourne.
+:::
+
+##  {#ala-home .galah data-menu-title="ALA Home"}
+
+{{< include _2-labs.qmd >}}
