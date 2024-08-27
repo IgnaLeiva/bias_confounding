@@ -14,15 +14,16 @@ version: 0.0.1
 incremental: false
 linestretch: 1.1
 embed-resources: true
-header-includes: |
-   <link rel="stylesheet" href="/assets/fontawesome-free-6.1.1-web/css/font-awesome.min.css">
-      <script defer src="/assets/fontawesome-free-6.1.1-web/js/all.min.js"></script>
 ---
 
-------------------------------------------------------------------------
+
 
 ## 
 
+<!-- https://github.com/quarto-ext/fontawesome -->
+<!-- header-includes: |
+   <link rel="stylesheet" href="/assets/fontawesome-free-6.1.1-web/css/font-awesome.min.css">
+      <script defer src="/assets/fontawesome-free-6.1.1-web/js/all.min.js"></script> --->
 
 <!--- examples: https://github.com/mcanouil/awesome-quarto?tab=readme-ov-file#presentations-formats --->
 
@@ -40,24 +41,36 @@ header-includes: |
 <div style="height: 400px;"></div>
 ::: title-box
 <p>[Part 3: Bias & Confounding]{style="font-size: 1.6em; font-weight: bold; color: white;"} </p>
-<p>[Ignacio Leiva, MSc]{style="font-size: 0.8em; color: white;"}</p>
+<p>[Ignacio Leiva-Escobar, MSc]{style="font-size: 0.8em; color: white;"}</p>
 :::
+
 
 ## Aims of the lecture
 
 <div style="height: 100px;"></div>
 
+
 ::: info-box
 
-<ul>
+<!--<ul>
+<li> {{< fa 'circle-chevron-right' >}} Now potential **sources of errors** in epidemiological studies</li>
+<li> {{< fa brands facebook >}} Evaluation of the **result validity** considering confounding factor</li>
+<li><i class="fa-brands fa-github"></i> Gain knowledge about **study evaluation**</li>
+</ul> -->
+<span style="color:#4a4e69">{{< fa 'circle-chevron-right' >}} </span> 
+Now potential 
+<span style="color:#001845">  **sources of errors** </span> in epidemiological studies
 
-<li><i class="fa-solid fa-bullseye"></i>Now potential **sources of errors** in epidemiological studies</li>
+<br>
 
-<li><i class="fa-brands fa-github"></i>Evaluation of the **result validity** considering confounding factor</li>
+<span style="color:#4a4e69">{{< fa 'circle-chevron-right' >}} </span> Evaluation of the 
+<span style="color:#001845"> **result validity** </span> considering confounding factor
 
-<li><i class="fa-solid fa-bowl-food"></i>Gain knowledge about **study evaluation**</li>
+<br>
 
-</ul>
+<span style="color:#4a4e69">{{< fa 'circle-chevron-right' >}} </span> Gain knowledge about 
+<span style="color:#001845"> **study evaluation** </span> 
+
 :::
 
 ## Lecture structure
@@ -99,22 +112,27 @@ header-includes: |
 
 ## {auto-animate=true}
 
-[Why is the **identification** and **interpretation** of biases essential in epidemiology?]{style="font-size: 1.5em;"} 
+[Why is the <span style="color:#002046"> **identification** </span> and <span style="color:#002046"> **interpretation** </span> of biases essential in epidemiology?]{style="font-size: 1.5em;"} 
 
 <div style="height: 50px;"></div>
 ::: info-box
-<ul>
+<span style="color:#4a4e69">{{< fa 'circle-chevron-right' >}} </span> Helps to determine the validity of the study results
 
-<li><i class="fa-solid fa-bullseye"></i>Helps to determine the validity of the study results</li>
-<li><i class="fa-brands fa-github"></i>Observational studies are more proned to bias compared with RCT</li>
-<li><i class="fa-solid fa-bowl-food"></i>RCT not always can be conducted</li>
-<li><i class="fa-solid fa-bowl-food"></i>Strategies to minimised bias in observational settings</li>
+<br>
 
-</ul>
+<span style="color:#4a4e69">{{< fa 'circle-chevron-right' >}} </span> Observational studies are more proned to bias compared with RCT
+
+<br>
+
+<span style="color:#4a4e69">{{< fa 'circle-chevron-right' >}} </span> RCT not always can be conducted
+
+<br>
+
+<span style="color:#4a4e69">{{< fa 'circle-chevron-right' >}} </span> Strategies to minimised bias in observational settings
+
 :::
 
 ## 
-
 
 <div style="height: 100px;"></div>
 ::: columns
@@ -130,12 +148,14 @@ header-includes: |
 :::
 :::
 ::: {.column .center width="33%" .incremental}
-::: option-box 
-[**Bias**](#selection-bias)
+::: option-box  
+<!---<div style="text-align: center;"> --->
+[**Bias**](#selection-bias) <!---<span style="color:#001845"> {{< fa bullseye >}} </span>--->
 <div style="font-size: 0.7em; font-weight: bold; color: #E6E6E6;"></div>
 <p>`Selection`</p>
 <p>`Information`</p>
 <p>`Confounding`<sup>*</sup></p>
+<!---</div> --->
 :::
 :::
 
