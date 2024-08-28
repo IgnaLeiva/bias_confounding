@@ -57,21 +57,27 @@ embed-resources: true
 <li> {{< fa brands facebook >}} Evaluation of the **result validity** considering confounding factor</li>
 <li><i class="fa-brands fa-github"></i> Gain knowledge about **study evaluation**</li>
 </ul> -->
+::: {.fragment}
 <span style="color:#4a4e69">{{< fa 'circle-chevron-right' >}} </span> 
-Now potential 
-<span style="color:#001845">  **sources of errors** </span> in epidemiological studies
+Now potential [sources of errors]{style="color:#001845; font-weight: bold"} in epidemiological studies
 
 <br>
+:::
 
+::: {.fragment}
 <span style="color:#4a4e69">{{< fa 'circle-chevron-right' >}} </span> Evaluation of the 
-<span style="color:#001845"> **result validity** </span> considering confounding factor
+[result validity]{style="color:#001845; font-weight: bold"} considering confounding factor
 
+<!--<span style="color:#001845"> **result validity** </span> -->
 <br>
+:::
 
-<span style="color:#4a4e69">{{< fa 'circle-chevron-right' >}} </span> Gain knowledge about 
-<span style="color:#001845"> **study evaluation** </span> 
+::: {.fragment}
+<span style="color:#4a4e69">{{< fa 'circle-chevron-right' >}} </span> Gain knowledge about [study evaluation]{style="color:#001845; font-weight: bold"}
+:::
 
 :::
+
 
 ## Lecture structure
 
@@ -110,6 +116,43 @@ Now potential
 :::
 :::
 
+
+## MOve
+
+::: {.sectionhead}
+1 [2 3 4 5 6]{style="opacity:0.25"}
+:::
+
+::: {.absolute top="0" left="100%"}
+ffff
+:::
+
+::: {style="text-align: center"}
+R is an open-source ([**free**]{style="color:#cc0000"}!) scripting language for working with data
+:::
+
+::: {.absolute top="66%" left="55%"}
+::: {style="color: #cc0000"}
+project files are here
+:::
+:::
+
+::: {.absolute top="10%" left="0" width="1031" height="529"}
+::: {style="text-align: center"}
+![](RStudio2.png)
+:::
+:::
+
+::: {.fragment}
+![](tidyverse.png){.absolute top="70" left="530" height="574" width="499"}
+:::
+:::
+
+::: {.fragment}
+<br/>
+...which contain *functions*
+:::
+
 ## {auto-animate=true}
 
 [Why is the <span style="color:#002046"> **identification** </span> and <span style="color:#002046"> **interpretation** </span> of biases essential in epidemiology?]{style="font-size: 1.5em;"} 
@@ -131,6 +174,7 @@ Now potential
 <span style="color:#4a4e69">{{< fa 'circle-chevron-right' >}} </span> Strategies to minimised bias in observational settings
 
 :::
+
 
 ## 
 
